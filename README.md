@@ -19,3 +19,4 @@ pip install mujoco==3.2.7
 python -m tests.test_Gen3
 python -m tests.test_SRLs
 ```
+* **demo of the scenario**
