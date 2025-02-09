@@ -1,0 +1,26 @@
+<mujoco model="kinova scene">
+<include file="mjmodel_ori.xml"/>
+<!--  <statistic center="0.3 0 0.4" extent="0.8"/>  -->
+<asset>
+<texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
+<texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+<material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+</asset>
+<visual>
+<global offwidth="1920" offheight="1080"/>
+</visual>
+<worldbody>
+<geom name="floor" pos="0 0 0" size="15 15 1" type="plane" material="matplane" margin="0.001" condim="3" friction="1 0.005 0.0001" />
+<light directional="true" diffuse=".4 .4 .4" specular="0.1 0.1 0.1" pos="0 0 5.0" dir="0 0 -1" castshadow="false" />
+<light directional="true" diffuse=".6 .6 .6" specular="0.2 0.2 0.2" pos="0 0 4" dir="0 0 -1" />
+<!--  <body name = "area" pos = " 0.06 0 0.44">
+      <geom type="box" size="0.25 0.22 0.44" contype="0" conaffinity="0"  rgba = "1 0 0 0.2"/>
+      
+    </body>  -->
+<!--  <body name = "area" pos = " 0.01 0 1.30">
+      <geom type="box" size="0.19 0.32 0.25" contype="0" conaffinity="0"  rgba = "1 0 0 0.2"/>
+      
+    </body>  -->
+<!--     <geom name="red_box" type="box" size="1 0.02 1" rgba="1 0 0 1"  pos="0.2 0.5 .2"/> -->
+</worldbody>
+</mujoco>

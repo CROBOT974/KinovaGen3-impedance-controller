@@ -1,0 +1,133 @@
+<mujoco model="GEN3_WITH_L31K_GRIPPER_URDF_V1">
+  <compiler angle="radian" meshdir="kortex_description/arms_with_gripper/gen3_7dof_with_L31K/meshes/"/>
+
+  <default>
+    <joint pos="0 0 0" axis="0 0 1" damping="0.2"/>
+    <motor ctrllimited="false" forcelimited="true" />
+  </default>
+
+  <asset>
+    <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" width="512" height="512" mark="cross" markrgb=".8 .8 .8" />
+    <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true" />
+    <mesh name="base_link" file="base_link.STL"/>
+    <mesh name="shoulder_link" file="shoulder_link.STL"/>
+    <mesh name="half_arm_1_link" file="half_arm_1_link.STL"/>
+    <mesh name="half_arm_2_link" file="half_arm_2_link.STL"/>
+    <mesh name="forearm_link" file="forearm_link.STL"/>
+    <mesh name="spherical_wrist_1_link" file="spherical_wrist_1_link.STL"/>
+    <mesh name="spherical_wrist_2_link" file="spherical_wrist_2_link.STL"/>
+    <mesh name="bracelet_with_vision_link" file="bracelet_with_vision_link.STL"/>
+    <mesh name="gripper_base_link" file="gripper_base_link.STL"/>
+    <mesh name="right_finger_prox_link" file="right_finger_prox_link.STL"/>
+    <mesh name="right_finger_dist_link" file="right_finger_dist_link.STL"/>
+    <mesh name="left_finger_prox_link" file="left_finger_prox_link.STL"/>
+    <mesh name="left_finger_dist_link" file="left_finger_dist_link.STL"/>
+  </asset>
+  <worldbody>
+    
+    
+
+    <body name="base_link" pos="0 0 0" quat="1 0 0 0">
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1"  mesh="base_link"/>
+      <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="base_link"/>
+      
+      <body name="shoulder_link" pos="0 0 0.15643" quat="-3.67321e-06 1 0 0">
+        <inertial pos="-2.3e-05 -0.010364 -0.07336" quat="0.707051 0.0451246 -0.0453544 0.704263" mass="1.3773" diaginertia="0.00488868 0.00457 0.00135132"/>
+        <joint name="ACTUATOR1" pos="0 0 0" axis="0 0 1" limited="false"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1"  mesh="shoulder_link"/>
+        <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="shoulder_link"/>
+        <body name="half_arm_1_link" pos="0 0.005375 -0.12838" quat="0.707105 0.707108 0 0">
+          <inertial pos="-4.4e-05 -0.09958 -0.013278" quat="0.482348 0.516286 -0.516862 0.483366" mass="1.1636" diaginertia="0.0113017 0.011088 0.00102532"/>
+          <joint name="ACTUATOR2" pos="0 0 0" axis="0 0 1" limited="true" range="-2.41 2.41"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="half_arm_1_link"/>
+          <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="half_arm_1_link"/>
+          <body name="half_arm_2_link" pos="0 -0.21038 -0.006375" quat="0.707105 -0.707108 0 0">
+            <inertial pos="-4.4e-05 -0.006641 -0.117892" quat="0.706144 0.0213722 -0.0209128 0.707437" mass="1.1636" diaginertia="0.0111633 0.010932 0.00100671"/>
+            <joint name="ACTUATOR3" pos="0 0 0" axis="0 0 1" limited="false"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="half_arm_2_link"/>
+            <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="half_arm_2_link"/>
+            <body name="forearm_link" pos="0 0.006375 -0.21038" quat="0.707105 0.707108 0 0">
+              <inertial pos="-1.8e-05 -0.075478 -0.015006" quat="0.483678 0.515961 -0.515859 0.483455" mass="0.9302" diaginertia="0.00834839 0.008147 0.000598606"/>
+              <joint name="ACTUATOR4" pos="0 0 0" axis="0 0 1" limited="true" range="-2.66 2.66"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="forearm_link"/>
+              <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="forearm_link"/>
+              <body name="spherical_wrist_1_link" pos="0 -0.20843 -0.006375" quat="0.707105 -0.707108 0 0">
+                <inertial pos="1e-06 -0.009432 -0.063883" quat="0.703558 0.0707492 -0.0707492 0.703558" mass="0.6781" diaginertia="0.00165901 0.001596 0.000346988"/>
+                <joint name="ACTUATOR5" pos="0 0 0" axis="0 0 1" limited="false"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="spherical_wrist_1_link"/>
+                <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="spherical_wrist_1_link"/>
+                <body name="spherical_wrist_2_link" pos="0 0.00017505 -0.10593" quat="0.707105 0.707108 0 0">
+                  <inertial pos="1e-06 -0.045483 -0.00965" quat="0.44426 0.550121 -0.550121 0.44426" mass="0.6781" diaginertia="0.00170087 0.001641 0.00035013"/>
+                  <joint name="ACTUATOR6" pos="0 0 0" axis="0 0 1" limited="true" range="-2.23 2.23"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="spherical_wrist_2_link"/>
+                  <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="spherical_wrist_2_link"/>
+                  <body name="bracelet_with_vision_link" pos="0 -0.10593 -0.00017505" quat="0.707105 -0.707108 0 0">
+                    <site name="attachment_site" pos="0 0 -0.18" quat="-1 1 0 0" rgba="1 0 0 0"/>
+                    <inertial pos="-0.000218882 -0.00891946 -0.0457344" quat="0.974998 0.221623 -0.00610901 0.0150095" mass="0.6401" diaginertia="0.00130083 0.00115566 0.000620052"/>
+                    <joint name="ACTUATOR7" pos="0 0 0" axis="0 0 1" limited="false"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.75294 0.75294 0.75294 1" mesh="bracelet_with_vision_link"/>
+                    <geom type="mesh" rgba="0.75294 0.75294 0.75294 1" mesh="bracelet_with_vision_link"/>
+                    <geom pos="0 0 -0.061525" quat="0 1 0 0" type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="gripper_base_link"/>
+                    <geom pos="0 0 -0.061525" quat="0 1 0 0" type="mesh" mesh="gripper_base_link"/>
+                    <body name="right_finger_prox_link" pos="0 0.030501 -0.131528" quat="0 0.707105 0 0.707108">
+                      <inertial pos="0.020257 0.0063483 6.991e-05" quat="0.598941 0.598941 0.375858 0.375858" mass="0.018385" diaginertia="5.25068e-06 4.77e-06 1.59932e-06"/>
+                      <joint name="EEF_JOINT_RB" pos="0 0 0" axis="0 0 1" limited="true" range="-0.09 0.96"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="right_finger_prox_link"/>
+                      <geom type="mesh" mesh="right_finger_prox_link"/>
+                      <body name="right_finger_dist_link" pos="-0.045636 0.020423 0">
+                        <inertial pos="0.018488 0.0011091 0" quat="0.557345 0.557345 0.435162 0.435162" mass="0.010748" diaginertia="1.91e-06 1.61e-06 5.5e-07"/>
+                        <joint name="EEF_JOINT_RU" pos="0 0 0" axis="0 0 1" limited="true" range="-1.03 0.21"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="right_finger_dist_link"/>
+                        <geom type="mesh" mesh="right_finger_dist_link"/>
+                      </body>
+                    </body>
+                    <body name="left_finger_prox_link" pos="0 -0.0305 -0.131528" quat="0 0.707105 0 0.707108">
+                      <inertial pos="0.020257 0.0063483 6.99e-05" quat="0.598941 0.598941 0.375858 0.375858" mass="0.018385" diaginertia="5.25068e-06 4.77e-06 1.59932e-06"/>
+                      <joint name="EEF_JOINT_LB" pos="0 0 0" axis="0 0 1" limited="true" range="-0.96 0.09"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="left_finger_prox_link"/>
+                      <geom type="mesh" mesh="left_finger_prox_link"/>
+                      <body name="left_finger_dist_link" pos="-0.045636 -0.020423 6.9901e-05">
+                        <inertial pos="-0.018488 0.0011091 0" quat="0.557345 0.557345 0.435162 0.435162" mass="0.010748" diaginertia="1.91e-06 1.61e-06 5.5e-07"/>
+                        <joint name="EEF_JOINT_LU" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.21 1.03"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="left_finger_dist_link"/>
+                        <geom type="mesh" mesh="left_finger_dist_link"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+
+  <equality>
+    <joint joint1="EEF_JOINT_RB" joint2="EEF_JOINT_LB" polycoef="0 -1 0 0 0"/>
+    <joint joint1="EEF_JOINT_LU" joint2="EEF_JOINT_LB" polycoef="0 1.3 0 0 0"/>
+    <joint joint1="EEF_JOINT_RU" joint2="EEF_JOINT_LB" polycoef="0 0.8 0 0 0"/>
+  </equality>
+
+  <keyframe>
+    <key name="init" qpos="0 -1.5708 0 1.5708 0 -1.5708 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0"/>
+  </keyframe>
+
+  <sensor>
+    <force    name="end_force"   site="attachment_site"/>
+    <torque   name="end_torque"  site="attachment_site"/>
+    <framepos name="ee_position" objtype="site" objname="attachment_site"/>
+  </sensor>
+
+  <actuator>
+    <motor name="ACTUATOR1_motor" joint="ACTUATOR1" forcerange="-39 39"/>
+    <motor name="ACTUATOR2_motor" joint="ACTUATOR2" forcerange="-39 39"/>
+    <motor name="ACTUATOR3_motor" joint="ACTUATOR3" forcerange="-39 39"/>
+    <motor name="ACTUATOR4_motor" joint="ACTUATOR4" forcerange="-39 39"/>
+    <motor name="ACTUATOR5_motor" joint="ACTUATOR5" forcerange="-9 9"/>
+    <motor name="ACTUATOR6_motor" joint="ACTUATOR6" forcerange="-9 9"/>
+    <motor name="ACTUATOR7_motor" joint="ACTUATOR7" forcerange="-9 9"/>
+    <motor name="EEF_JOINT_LB_motor" joint="EEF_JOINT_LB" forcerange="-3 3"/>
+  </actuator>
+
+</mujoco>

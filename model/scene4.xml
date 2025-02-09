@@ -1,0 +1,33 @@
+<mujoco model="dual kinova scene">
+
+  <include file="supernumerary_humanoid.xml"/>
+
+  <!-- <statistic center="0.3 0 0.4" extent="0.8"/> -->
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1=".3 .5 .7" rgb2="0 0 0" width="32" height="512"/>
+    <texture name="grid" type="2d" builtin="checker" width="512" height="512" rgb1=".1 .2 .3" rgb2=".2 .3 .4"/>
+    <material name="grid" texture="grid" texrepeat="1 1" texuniform="true" reflectance=".2"/>
+  </asset>
+
+  <visual>
+    <global offwidth="1920" offheight="1080"/>
+  </visual>
+
+  <worldbody>
+    <geom name="floor" size="0 0 .05" type="plane" material="grid" condim="3"/>
+    <light name="spotlight" mode="targetbodycom" target="torso" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 -6 4" cutoff="30"/>
+    <light name="top" pos="0 0 2" mode="trackcom"/>  
+    <site name="knee_site" pos="0.06 0 0.44" size="0.02" rgba="0 1 0 0"/>
+    <site name="stand_site" pos="0.01 0 1.30" size="0.02" rgba="0 1 0 0"/>
+    <!-- <body name = "area" pos = " 0.06 0 0.44">
+      <geom type="box" size="0.25 0.22 0.44" contype="0" conaffinity="0"  rgba = "1 0 0 0.2"/>
+      
+    </body> -->
+    <!-- <body name = "area" pos = " 0.01 0 1.30">
+      <geom type="box" size="0.19 0.32 0.25" contype="0" conaffinity="0"  rgba = "1 0 0 0.2"/>
+      
+    </body> -->
+<!--    <geom name="red_box" type="box" size="1 0.02 1" rgba="1 0 0 1"  pos="0.2 0.5 .2"/>-->
+  </worldbody>
+</mujoco>
